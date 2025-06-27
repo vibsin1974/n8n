@@ -1,0 +1,27 @@
+
+
+services:
+  n8n:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5678:5678"  # n8n 웹 UI 접속 포트
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=vibsin9322       # 원하는 사용자 이름
+      - N8N_BASIC_AUTH_PASSWORD=Hee150603! # 원하는 비밀번호
+      - N8N_HOST=curiously-dynamic-jay.ngrok-free.app
+      - N8N_PORT=5678
+      - WEBHOOK_URL=https://curiously-dynamic-jay.ngrok-free.app
+      - N8N_EDITOR_BASE_URL=https://curiously-dynamic-jay.ngrok-free.app
+      - TZ=Asia/Seoul
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+
+    volumes:
+      - n8n_data:/home/node/.n8n
+    restart: always
+
+volumes:
+  n8n_data:
