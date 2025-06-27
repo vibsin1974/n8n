@@ -25,4 +25,3 @@ services:
 
 volumes:
   n8n_data:
-C:\Users\User\docker\n8n\n8n_data
